@@ -4,42 +4,27 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.example.mymadeiraapp.fragments.MapScreen
+import com.example.mymadeiraapp.navigation.AppNavHost
+import com.example.mymadeiraapp.navigation.AppNavigation
 import com.example.mymadeiraapp.ui.theme.MyMadeiraAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
-            MyMadeiraAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            val navController = rememberNavController() // Initialize NavController
+            var startScreen = AppNavigation.NavigationItem.Map_Screen.route
+            AppNavHost(
+                navController = navController,
+                startScreen = startScreen
+            )
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    MapScreen()
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyMadeiraAppTheme {
-        MapScreen()
     }
 }
