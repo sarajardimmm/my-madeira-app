@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.mymadeiraapp.fragments.MapScreen
+import com.example.mymadeiraapp.mapDisplay.MapScreen
 import com.example.mymadeiraapp.mapDisplay.MapsScreenViewModel
 
 
@@ -23,7 +23,7 @@ fun AppNavHost(
     ) {
         composable(AppNavigation.NavigationItem.Map_Screen.route) {
             Log.d("Na", "AppNavHost navigating to SplashScreen ")
-            val mapsScreenViewModel = MapsScreenViewModel(navController)
+            val mapsScreenViewModel = MapsScreenViewModel()
             MapScreen(navController, mapsScreenViewModel)
         }
     }

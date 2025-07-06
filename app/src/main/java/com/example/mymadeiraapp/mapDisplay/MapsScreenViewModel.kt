@@ -1,9 +1,14 @@
 package com.example.mymadeiraapp.mapDisplay
 
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.google.android.gms.maps.model.LatLng
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MapsScreenViewModel(navController: NavHostController) {
+@HiltViewModel
+class MapsScreenViewModel @Inject constructor() :
+    ViewModel() {
 
     var positionList = mutableListOf<LatLng>()
 
