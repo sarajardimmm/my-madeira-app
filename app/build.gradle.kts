@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.secrets.gradle.plugin)
+    id("kotlin-kapt")
 }
 
 android {
@@ -31,6 +32,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    kapt {
+        includeCompileClasspath = false
+        correctErrorTypes = true
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -64,6 +69,12 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.navigation.hilt)
+    implementation(libs.navigation.hilt.compose)
+
+    implementation(libs.google.hilt)
+    kapt(libs.google.hilt.compiler)
 
     implementation(libs.navigation.compose)
     implementation(libs.navigation.fragment)

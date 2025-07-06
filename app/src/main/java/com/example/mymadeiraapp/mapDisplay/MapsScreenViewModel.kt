@@ -1,4 +1,4 @@
-package com.example.mymadeiraapp.fragments
+package com.example.mymadeiraapp.mapDisplay
 
 import androidx.navigation.NavHostController
 import com.google.android.gms.maps.model.LatLng

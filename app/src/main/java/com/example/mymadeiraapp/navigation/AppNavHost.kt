@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.mymadeiraapp.fragments.MapScreen
-import com.example.mymadeiraapp.fragments.MapsScreenViewModel
+import com.example.mymadeiraapp.mapDisplay.MapsScreenViewModel
 
 
 @Composable
