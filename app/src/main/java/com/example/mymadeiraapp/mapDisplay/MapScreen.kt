@@ -6,6 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import com.example.mymadeiraapp.locationDetail.LocationDetailCompose
+import com.example.mymadeiraapp.model.LocationDetailData
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
@@ -16,6 +18,11 @@ import com.google.maps.android.compose.rememberMarkerState
 
 @Composable
 fun MapScreen(navController: NavController, mapsScreenViewModel: MapsScreenViewModel) {
+    MapScreenContent()
+}
+
+@Composable
+fun MapScreenContent(){
     // Coordinates for Atasehir
     val myPoint = LatLng(32.738999, -16.681050)
     val myPoint2 = LatLng(32.748999, -16.691050)
@@ -63,4 +70,11 @@ fun MapScreen(navController: NavController, mapsScreenViewModel: MapsScreenViewM
 @Preview
 @Composable
 fun MapScreenPreview() {
+    val mockLocationDetailData = LocationDetailData(0,
+        LatLng(32.738999, -16.681050),
+        "Name",
+        "Details where I say why this is a really cool spot and why you should visit, also I would " +
+                "mention some warnings of times of year to avoid it because there are too many people")
+    LocationDetailCompose(true, mockLocationDetailData, {})
+    MapScreenContent()
 }

@@ -1,14 +1,18 @@
 package com.example.mymadeiraapp.mapDisplay
 
 import androidx.lifecycle.ViewModel
-import androidx.navigation.NavHostController
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
 class MapsScreenViewModel @Inject constructor() :
     ViewModel() {
+
+    val _errorMessage = MutableStateFlow<Int>(0)
+    val errorMessage = _errorMessage.asStateFlow()
 
     var positionList = mutableListOf<LatLng>()
 
